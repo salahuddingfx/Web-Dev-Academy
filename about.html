@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="Images/code.png" title="code icons" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About - Web Dev Academy</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo" onclick="location.href='home.html'">Web Dev Academy</div>
+            <div id="mobileMenuBtn" class="mobile-menu" onclick="toggleMobileMenu()" aria-label="Toggle navigation">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="home.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="team.html">Our Team</a>
+                <a href="login.html" id="loginLink">Login</a>
+                <a href="signup.html">Sign Up</a>
+                <a href="contact.html">Contact</a>
+                <a href="dashboard.html" id="dashboardLink" style="display: none;">Dashboard</a>
+                <a href="#" onclick="logout()" id="logoutLink" style="display: none;">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-content">
+        <div class="container">
+            <div class="page active" id="aboutPage">
+                <div class="hero" style="padding: 2rem 0;">
+                    <h1>About Web Dev Academy</h1>
+                    <p>Your homework submission and task management platform</p>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+                    <div class="stat-card">
+                        <i class="fas fa-tasks" style="font-size: 3rem; color: #667eea; margin-bottom: 1rem;"></i>
+                        <h3>Task Management</h3>
+                        <p>Submit your homework assignments, track progress, and manage your learning journey with our intuitive dashboard.</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-upload" style="font-size: 3rem; color: #f093fb; margin-bottom: 1rem;"></i>
+                        <h3>Easy Submission</h3>
+                        <p>Upload your completed assignments with drag-and-drop functionality and get instant confirmation of submission.</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-chart-line" style="font-size: 3rem; color: #4facfe; margin-bottom: 1rem;"></i>
+                        <h3>Progress Tracking</h3>
+                        <p>Monitor your learning progress with detailed statistics and visual progress indicators.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

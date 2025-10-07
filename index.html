@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="Images/code.png" title="code icons" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Web Dev Academy - Task Portal">
+    <meta name="keywords" content="Web Dev Academy, Task Portal, Homework Submission, Task Management, Web Development">
+    <meta name="author" content="Salah Uddin Kader">
+    <title>Web Dev Academy - Task Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader"></div>
+        <div class="loading-text">Loading Web Dev Academy...</div>
+        <div class="loading-progress">
+            <div class="loading-progress-bar"></div>
+        </div>
+    </div>
+
+    <!-- Floating Elements -->
+    <div class="floating-elements">
+        <div class="floating-element">
+            <i class="fas fa-code" style="font-size: 3rem;"></i>
+        </div>
+        <div class="floating-element">
+            <i class="fas fa-laptop-code" style="font-size: 2.5rem;"></i>
+        </div>
+        <div class="floating-element">
+            <i class="fas fa-graduation-cap" style="font-size: 3.5rem;"></i>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo" onclick="location.href='index.html'">
+                Web Dev Academy
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="home.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="team.html">Our Team</a>
+                <a href="tasks.html" id="tasksLink">Tasks</a>
+                <a href="login.html" id="loginLink">Login</a>
+                <a href="signup.html">Sign Up</a>
+                <a href="contact.html">Contact</a>
+                <a href="dashboard.html" id="dashboardLink" style="display: none;">Dashboard</a>
+                <a href="#" onclick="logout()" id="logoutLink" style="display: none;">Logout</a>
+            </div>
+            <div class="mobile-menu" onclick="toggleMobileMenu()" id="mobileMenuBtn">
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <!-- Home Page -->
+            <div class="page active" id="homePage">
+                <div class="hero">
+                    <h1>Welcome to Web Dev Academy</h1>
+                    <p id="typewriterText">Your homework submission and task management platform</p>
+                    <div class="cta-buttons">
+                        <a class="btn btn-primary" href="signup.html">Get Started</a>
+                        <a class="btn btn-secondary" href="login.html">Login</a>
+                    </div>
+                </div>
+
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <i class="fas fa-users" style="font-size: 2.5rem; color: #667eea; margin-bottom: 1rem;"></i>
+                        <h3>150+</h3>
+                        <p>Active Students</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-chalkboard-teacher" style="font-size: 2.5rem; color: #f093fb; margin-bottom: 1rem;"></i>
+                        <h3>85+</h3>
+                        <p>Classes Available</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-tasks" style="font-size: 2.5rem; color: #4facfe; margin-bottom: 1rem;"></i>
+                        <h3>140+</h3>
+                        <p>Tasks Available</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-trophy" style="font-size: 2.5rem; color: #f5576c; margin-bottom: 1rem;"></i>
+                        <h3>95%</h3>
+                        <p>Success Rate</p>
+                    </div>
+                </div>
+
+                <!-- Features Section -->
+                <div style="margin: 4rem 0;">
+                    <div style="text-align: center; margin-bottom: 3rem;">
+                        <h2 style="color: white; font-size: 2.5rem; margin-bottom: 1rem;">🚀 Why Choose Web Dev Academy?</h2>
+                        <p style="color: rgba(255,255,255,0.8); font-size: 1.2rem; max-width: 600px; margin: 0 auto;">Experience the future of web development education with our comprehensive platform designed for modern learners.</p>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+                        <div class="stat-card" style="text-align: left; padding: 2rem;">
+                            <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+                                <div style="width: 60px; height: 60px; border-radius: 15px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; margin-right: 1rem;">
+                                    <i class="fas fa-rocket" style="font-size: 1.5rem; color: white;"></i>
+                                </div>
+                                <h3 style="color: white; margin: 0;">Interactive Learning</h3>
+                            </div>
+                            <p style="color: rgba(255,255,255,0.8); line-height: 1.6;">Learn by doing with hands-on projects, real-time feedback, and interactive coding challenges that make learning web development engaging and effective.</p>
+                        </div>
+
+                        <div class="stat-card" style="text-align: left; padding: 2rem;">
+                            <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+                                <div style="width: 60px; height: 60px; border-radius: 15px; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); display: flex; align-items: center; justify-content: center; margin-right: 1rem;">
+                                    <i class="fas fa-clock" style="font-size: 1.5rem; color: white;"></i>
+                                </div>
+                                <h3 style="color: white; margin: 0;">Flexible Schedule</h3>
+                            </div>
+                            <p style="color: rgba(255,255,255,0.8); line-height: 1.6;">Study at your own pace with 24/7 access to course materials, assignments, and support. Perfect for working professionals and students alike.</p>
+                        </div>
+
+                        <div class="stat-card" style="text-align: left; padding: 2rem;">
+                            <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+                                <div style="width: 60px; height: 60px; border-radius: 15px; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); display: flex; align-items: center; justify-content: center; margin-right: 1rem;">
+                                    <i class="fas fa-users-cog" style="font-size: 1.5rem; color: white;"></i>
+                                </div>
+                                <h3 style="color: white; margin: 0;">Expert Mentorship</h3>
+                            </div>
+                            <p style="color: rgba(255,255,255,0.8); line-height: 1.6;">Get guidance from industry professionals with years of experience at top tech companies. Personalized feedback on every assignment.</p>
+                        </div>
+
+                        <div class="stat-card" style="text-align: left; padding: 2rem;">
+                            <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+                                <div style="width: 60px; height: 60px; border-radius: 15px; background: linear-gradient(135deg, #764ba2 0%, #667eea 100%); display: flex; align-items: center; justify-content: center; margin-right: 1rem;">
+                                    <i class="fas fa-certificate" style="font-size: 1.5rem; color: white;"></i>
+                                </div>
+                                <h3 style="color: white; margin: 0;">Industry Recognition</h3>
+                            </div>
+                            <p style="color: rgba(255,255,255,0.8); line-height: 1.6;">Earn certificates recognized by leading tech companies. Build a portfolio that showcases your skills to potential employers.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technologies Section -->
+                <div style="margin: 4rem 0;">
+                    <div style="text-align: center; margin-bottom: 3rem;">
+                        <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
+                            <div style="width: 60px; height: 60px; border-radius: 15px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-code" style="font-size: 1.8rem; color: white;"></i>
+                            </div>
+                            <h2 style="color: white; font-size: 2.5rem; margin: 0;">Technologies You'll Master</h2>
+                        </div>
+                        <p style="color: rgba(255,255,255,0.8); font-size: 1.2rem;">Learn the most in-demand web development technologies used by top companies worldwide.</p>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
+                        <!-- Frontend Technologies -->
+                        <div class="stat-card" style="text-align: center; padding: 1.5rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                            <div style="font-size: 3.5rem; margin-bottom: 1rem; color: #E34F26;">
+                                <i class="fab fa-html5"></i>
+                            </div>
+                            <h4 style="color: #E34F26; margin-bottom: 0.5rem;">HTML5</h4>
+                            <p style="font-size: 0.9rem; opacity: 0.8;">Modern Markup</p>
+                        </div>
+                        
+                        <div class="stat-card" style="text-align: center; padding: 1.5rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                            <div style="font-size: 3.5rem; margin-bottom: 1rem; color: #1572B6;">
+                                <i class="fab fa-css3-alt"></i>
+                            </div>
+                            <h4 style="color: #1572B6; margin-bottom: 0.5rem;">CSS3</h4>
+                            <p style="font-size: 0.9rem; opacity: 0.8;">Advanced Styling</p>
+                        </div>
+                        
+                        <div class="stat-card" style="text-align: center; padding: 1.5rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                            <div style="font-size: 3.5rem; margin-bottom: 1rem; color: #F7DF1E;">
+                                <i class="fab fa-js-square"></i>
+                            </div>
+                            <h4 style="color: #F7DF1E; margin-bottom: 0.5rem;">JavaScript</h4>
+                            <p style="font-size: 0.9rem; opacity: 0.8;">Dynamic Programming</p>
+                        </div>
+                        
+                        <div class="stat-card" style="text-align: center; padding: 1.5rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                            <div style="font-size: 3.5rem; margin-bottom: 1rem; color: #61DAFB;">
+                                <i class="fab fa-react"></i>
+                            </div>
+                            <h4 style="color: #61DAFB; margin-bottom: 0.5rem;">React</h4>
+                            <p style="font-size: 0.9rem; opacity: 0.8;">Component Library</p>
+                        </div>
+                        
+                        <!-- Backend Technologies -->
+                        <div class="stat-card" style="text-align: center; padding: 1.5rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                            <div style="font-size: 3.5rem; margin-bottom: 1rem; color: #339933;">
+                                <i class="fab fa-node-js"></i>
+                            </div>
+                            <h4 style="color: #339933; margin-bottom: 0.5rem;">Node.js</h4>
+                            <p style="font-size: 0.9rem; opacity: 0.8;">Backend Runtime</p>
+                        </div>
+                        
+                        <div class="stat-card" style="text-align: center; padding: 1.5rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                            <div style="font-size: 3.5rem; margin-bottom: 1rem; color: #3776AB;">
+                                <i class="fab fa-python"></i>
+                            </div>
+                            <h4 style="color: #3776AB; margin-bottom: 0.5rem;">Python</h4>
+                            <p style="font-size: 0.9rem; opacity: 0.8;">Backend & AI</p>
+                        </div>
+                        
+                        <!-- Database Technologies -->
+                        <div class="stat-card" style="text-align: center; padding: 1.5rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                            <div style="font-size: 3.5rem; margin-bottom: 1rem; color: #47A248;">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <h4 style="color: #47A248; margin-bottom: 0.5rem;">MongoDB</h4>
+                            <p style="font-size: 0.9rem; opacity: 0.8;">NoSQL Database</p>
+                        </div>
+                        
+                        <div class="stat-card" style="text-align: center; padding: 1.5rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                            <div style="font-size: 3.5rem; margin-bottom: 1rem; color: #336791;">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <h4 style="color: #336791; margin-bottom: 0.5rem;">SQL</h4>
+                            <p style="font-size: 0.9rem; opacity: 0.8;">Relational Database</p>
+                        </div>
+                        
+                        <!-- Tools & Frameworks -->
+                        <div class="stat-card" style="text-align: center; padding: 1.5rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                            <div style="font-size: 3.5rem; margin-bottom: 1rem; color: #F05032;">
+                                <i class="fab fa-git-alt"></i>
+                            </div>
+                            <h4 style="color: #F05032; margin-bottom: 0.5rem;">Git</h4>
+                            <p style="font-size: 0.9rem; opacity: 0.8;">Version Control</p>
+                        </div>
+                        
+                        <div class="stat-card" style="text-align: center; padding: 1.5rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                            <div style="font-size: 3.5rem; margin-bottom: 1rem; color: #FF9900;">
+                                <i class="fab fa-aws"></i>
+                            </div>
+                            <h4 style="color: #FF9900; margin-bottom: 0.5rem;">AWS</h4>
+                            <p style="font-size: 0.9rem; opacity: 0.8;">Cloud Platform</p>
+                        </div>
+                        
+                        <div class="stat-card" style="text-align: center; padding: 1.5rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                            <div style="font-size: 3.5rem; margin-bottom: 1rem; color: #2496ED;">
+                                <i class="fab fa-docker"></i>
+                            </div>
+                            <h4 style="color: #2496ED; margin-bottom: 0.5rem;">Docker</h4>
+                            <p style="font-size: 0.9rem; opacity: 0.8;">Containerization</p>
+                        </div>
+                        <div class="stat-card" style="text-align: center; padding: 1.5rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                            <div style="font-size: 3.5rem; margin-bottom: 1rem; color: #563D7C;">
+                                <i class="fab fa-bootstrap"></i>
+                            </div>
+                            <h4 style="color: #563D7C; margin-bottom: 0.5rem;">Bootstrap</h4>
+                            <p style="font-size: 0.9rem; opacity: 0.8;">Responsive Design</p>
+                        </div>
+                        <div class="stat-card" style="text-align: center; padding: 1.5rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                            <div style="font-size: 3.5rem; margin-bottom: 1rem; color: #764ba2;">
+                                <i class="fas fa-code-branch"></i>
+                            </div>
+                            <h4 style="color: #764ba2; margin-bottom: 0.5rem;">REST APIs</h4>
+                            <p style="font-size: 0.9rem; opacity: 0.8;">API Development</p>
+                        </div>
+                        <div class="stat-card" style="text-align: center; padding: 1.5rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                            <div style="font-size: 3.5rem; margin-bottom: 1rem; color: #FF5733;">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h4 style="color: #FF5733; margin-bottom: 0.5rem;">Responsive Web</h4>
+                            <p style="font-size: 0.9rem; opacity: 0.8;">Mobile First</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Login Page -->
+            <div class="page" id="loginPage">
+                <div class="auth-container">
+                    <form class="auth-form" onsubmit="handleLogin(event)">
+                        <h2>Login</h2>
+                        <div id="loginMessage"></div>
+                        <div class="form-group">
+                            <label for="loginEmailOrUsername">Email or Username</label>
+                            <input type="text" id="loginEmailOrUsername" required placeholder="Enter your email or username">
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Password</label>
+                            <div style="position: relative;">
+                                <input type="password" id="loginPassword" required placeholder="Enter your password" style="padding-right: 3rem;">
+                                <button type="button" onclick="togglePassword('loginPassword', this)" style="position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); background: none; border: none; color: rgba(255,255,255,0.7); cursor: pointer; font-size: 1rem;">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Login</button>
+                        <p style="text-align: center; margin-top: 1rem; color: rgba(255,255,255,0.8);">
+                            Don't have an account? <a href="#" onclick="showPage('signup')" style="color: #667eea;">Sign up</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Signup Page -->
+            <div class="page" id="signupPage">
+                <div class="auth-container">
+                    <form class="auth-form" onsubmit="handleSignup(event)">
+                        <h2>Sign Up</h2>
+                        <div id="signupMessage"></div>
+                        <div class="form-group">
+                            <label for="signupName">Full Name</label>
+                            <input type="text" id="signupName" required placeholder="Enter your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="signupUsername">Username</label>
+                            <input type="text" id="signupUsername" required placeholder="Choose a unique username">
+                        </div>
+                        <div class="form-group">
+                            <label for="signupEmail">Email</label>
+                            <input type="email" id="signupEmail" required placeholder="Enter your email">
+                        </div>
+                        <div class="form-group">
+                            <label for="signupPhone">Phone Number</label>
+                            <input type="tel" id="signupPhone" required placeholder="Enter your phone number">
+                        </div>
+                        <div class="form-group">
+                            <label for="signupPassword">Password</label>
+                            <div style="position: relative;">
+                                <input type="password" id="signupPassword" required placeholder="Create a password" style="padding-right: 3rem;">
+                                <button type="button" onclick="togglePassword('signupPassword', this)" style="position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); background: none; border: none; color: rgba(255,255,255,0.7); cursor: pointer; font-size: 1rem;">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <div style="position: relative;">
+                                <input type="password" id="confirmPassword" required placeholder="Confirm your password" style="padding-right: 3rem;">
+                                <button type="button" onclick="togglePassword('confirmPassword', this)" style="position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); background: none; border: none; color: rgba(255,255,255,0.7); cursor: pointer; font-size: 1rem;">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Sign Up</button>
+                        <p style="text-align: center; margin-top: 1rem; color: rgba(255,255,255,0.8);">
+                            Already have an account? <a href="#" onclick="showPage('login')" style="color: #667eea;">Login</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Dashboard Page -->
+            <div class="page" id="dashboardPage">
+                <div class="dashboard">
+                    <div class="dashboard-header">
+                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <img id="userProfileImage" class="profile-image" src="" alt="Profile" onclick="changeProfileImage()" style="display: none;">
+                                <div id="defaultAvatar" style="width: 100px; height: 100px; border-radius: 50%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: white; cursor: pointer;" onclick="changeProfileImage()">👤</div>
+                                <div>
+                                    <h1>📚 Student Dashboard</h1>
+                                    <p id="welcomeMessage">Welcome back!</p>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                                <button class="btn btn-primary" onclick="showMySubmissions()">
+                                    📄 My Submissions
+                                </button>
+                                <a class="btn btn-primary" href="tasks.html" style="text-decoration:none; display: inline-flex; align-items: center; justify-content:center;">📚 Browse All Tasks</a>
+                                <button class="btn btn-secondary" onclick="showMyProgress()">
+                                    📊 My Progress
+                                </button>
+                                <button class="btn btn-secondary" onclick="showEditProfile()">
+                                    ✏️ Edit Profile
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-stats">
+                        <div class="stat-card">
+                            <h3 id="mySubmissions">0</h3>
+                            <p>My Submissions</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3 id="completedTasks">0</h3>
+                            <p>Completed Tasks</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3 id="pendingTasks">0</h3>
+                            <p>Pending Tasks</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3 id="totalAvailableTasks">0</h3>
+                            <p>Available Tasks</p>
+                        </div>
+                    </div>
+
+                    <div class="task-search">
+                        <h3 style="color: white; margin-bottom: 1rem;">🔍 Search Tasks by Class Number</h3>
+                        <form class="search-form" onsubmit="searchTasks(event)">
+                            <input type="number" class="search-input" id="classSearch" placeholder="Enter class number (1-90)" min="1" max="90">
+                            <button type="submit" class="btn btn-primary">Search Tasks</button>
+                            <button type="button" class="btn btn-secondary" onclick="loadDefaultTasks()">Show All Tasks</button>
+                        </form>
+                    </div>
+
+                    <div id="taskResults">
+                        <div class="task-list" id="taskList">
+                            <!-- Default tasks will be shown here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- About Page -->
+            <div class="page" id="aboutPage">
+                <div class="hero" style="padding: 2rem 0;">
+                    <h1>About Web Dev Academy</h1>
+                    <p>Your homework submission and task management platform</p>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+                    <div class="stat-card">
+                        <i class="fas fa-tasks" style="font-size: 3rem; color: #667eea; margin-bottom: 1rem;"></i>
+                        <h3>Task Management</h3>
+                        <p>Submit your homework assignments, track progress, and manage your learning journey with our intuitive dashboard.</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-upload" style="font-size: 3rem; color: #f093fb; margin-bottom: 1rem;"></i>
+                        <h3>Easy Submission</h3>
+                        <p>Upload your completed assignments with drag-and-drop functionality and get instant confirmation of submission.</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-chart-line" style="font-size: 3rem; color: #4facfe; margin-bottom: 1rem;"></i>
+                        <h3>Progress Tracking</h3>
+                        <p>Monitor your learning progress with detailed statistics and visual progress indicators.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Page -->
+            <div class="page" id="teamPage">
+                <div class="hero" style="padding: 2rem 0;">
+                    <h1>Meet Our Team</h1>
+                    <p>The passionate educators behind Web Dev Academy</p>
+                </div>
+
+                <div class="team-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+                    <!-- Team Member 1 -->
+                    <div class="team-card" onclick="showTeamMember(1)">
+                        <div class="team-avatar">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face&auto=format" 
+                                alt="Ahmed Rahman" 
+                                style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 4px solid #667eea; box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);"
+                                onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDEyMCAxMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkMSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzY2N2VlYTtzdG9wLW9wYWNpdHk6MSIgLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiM3NjRiYTI7c3RvcC1vcGFjaXR5OjEiIC8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PGNpcmNsZSBjeD0iNjAiIGN5PSI2MCIgcj0iNjAiIGZpbGw9InVybCgjZ3JhZDEpIi8+PHRleHQgeD0iNjAiIHk9Ijc1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSI0MCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIj7wn5GowqDwn5K7PC90ZXh0Pjwvc3ZnPg=='; this.style.borderRadius='50%';">
+                        </div>
+                        <h3>Ahmed Rahman</h3>
+                        <p class="team-role">Lead Instructor</p>
+                        <p class="team-specialty">Full-Stack Development</p>
+                        <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 1rem;">
+                            <a href="https://github.com/ahmed-rahman" target="_blank" rel="noopener noreferrer" style="color: #667eea; font-size: 1.2rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/ahmed-rahman" target="_blank" rel="noopener noreferrer" style="color: #667eea; font-size: 1.2rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://twitter.com/ahmed_dev" target="_blank" rel="noopener noreferrer" style="color: #667eea; font-size: 1.2rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Team Member 2 -->
+                    <div class="team-card" onclick="showTeamMember(2)">
+                        <div class="team-avatar">
+                            <div style="width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white; box-shadow: 0 8px 25px rgba(240, 147, 251, 0.4); margin: 0 auto;">
+                                👩‍💻
+                            </div>
+                        </div>
+                        <h3>Fatima Khan</h3>
+                        <p class="team-role">Frontend Specialist</p>
+                        <p class="team-specialty">React & UI/UX Design</p>
+                        <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 1rem;">
+                            <a href="https://github.com/fatima-khan" target="_blank" rel="noopener noreferrer" style="color: #f093fb; font-size: 1.2rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/fatima-khan" target="_blank" rel="noopener noreferrer" style="color: #f093fb; font-size: 1.2rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://dribbble.com/fatima_designs" target="_blank" rel="noopener noreferrer" style="color: #f093fb; font-size: 1.2rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+                                <i class="fab fa-dribbble"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Team Member 3 -->
+                    <div class="team-card" onclick="showTeamMember(3)">
+                        <div class="team-avatar">
+                            <div style="width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white; box-shadow: 0 8px 25px rgba(79, 172, 254, 0.4); margin: 0 auto;">
+                                👨‍💼
+                            </div>
+                        </div>
+                        <h3>Rafiq Hassan</h3>
+                        <p class="team-role">Backend Developer</p>
+                        <p class="team-specialty">Node.js & Database Expert</p>
+                        <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 1rem;">
+                            <a href="https://github.com/rafiq-hassan" target="_blank" rel="noopener noreferrer" style="color: #4facfe; font-size: 1.2rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/rafiq-hassan" target="_blank" rel="noopener noreferrer" style="color: #4facfe; font-size: 1.2rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://stackoverflow.com/users/rafiq" target="_blank" rel="noopener noreferrer" style="color: #4facfe; font-size: 1.2rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+                                <i class="fab fa-stack-overflow"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Team Member 4 -->
+                    <div class="team-card" onclick="showTeamMember(4)">
+                        <div class="team-avatar">
+                            <div style="width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white; box-shadow: 0 8px 25px rgba(245, 87, 108, 0.4); margin: 0 auto;">
+                                👩‍🎨
+                            </div>
+                        </div>
+                        <h3>Nadia Islam</h3>
+                        <p class="team-role">UI/UX Designer</p>
+                        <p class="team-specialty">Creative Design & User Experience</p>
+                        <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 1rem;">
+                            <a href="https://behance.net/nadia-islam" target="_blank" rel="noopener noreferrer" style="color: #f5576c; font-size: 1.2rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+                                <i class="fab fa-behance"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/nadia-islam" target="_blank" rel="noopener noreferrer" style="color: #f5576c; font-size: 1.2rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://dribbble.com/nadia_ui" target="_blank" rel="noopener noreferrer" style="color: #f5576c; font-size: 1.2rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+                                <i class="fab fa-dribbble"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Team Member 5 -->
+                    <div class="team-card" onclick="showTeamMember(5)">
+                        <div class="team-avatar">
+                            <div style="width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(135deg, #764ba2 0%, #667eea 100%); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white; box-shadow: 0 8px 25px rgba(118, 75, 162, 0.4); margin: 0 auto;">
+                                👨‍🔬
+                            </div>
+                        </div>
+                        <h3>Karim Ahmed</h3>
+                        <p class="team-role">DevOps Engineer</p>
+                        <p class="team-specialty">Cloud & Infrastructure</p>
+                        <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 1rem;">
+                            <a href="https://github.com/karim-ahmed" target="_blank" rel="noopener noreferrer" style="color: #764ba2; font-size: 1.2rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/karim-ahmed" target="_blank" rel="noopener noreferrer" style="color: #764ba2; font-size: 1.2rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://medium.com/@karim_devops" target="_blank" rel="noopener noreferrer" style="color: #764ba2; font-size: 1.2rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+                                <i class="fab fa-medium"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Team Member 6 -->
+                    <div class="team-card" onclick="showTeamMember(6)">
+                        <div class="team-avatar">
+                            <div style="width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white; box-shadow: 0 8px 25px rgba(0, 242, 254, 0.4); margin: 0 auto;">
+                                👩‍💻
+                            </div>
+                        </div>
+                        <h3>Sadia Rahman</h3>
+                        <p class="team-role">Mobile Developer</p>
+                        <p class="team-specialty">React Native & Flutter</p>
+                        <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 1rem;">
+                            <a href="https://github.com/sadia-rahman" target="_blank" rel="noopener noreferrer" style="color: #00f2fe; font-size: 1.2rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/sadia-rahman" target="_blank" rel="noopener noreferrer" style="color: #00f2fe; font-size: 1.2rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://play.google.com/store/apps/developer?id=Sadia+Rahman" target="_blank" rel="noopener noreferrer" style="color: #00f2fe; font-size: 1.2rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+                                <i class="fab fa-google-play"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Page -->
+            <div class="page" id="contactPage">
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h2>Get in Touch</h2>
+                        <p style="margin-bottom: 2rem; opacity: 0.9;">Have questions about the platform? We're here to help!</p>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>info@webdevacademy.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>+880 123456789</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Address</h4>
+                                <p>Cox's Bazar, Bangladesh</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form class="contact-form" onsubmit="handleContactForm(event)">
+                        <h3 style="color: white; margin-bottom: 1.5rem;">Send us a Message</h3>
+                        <div id="contactMessage"></div>
+                        <div class="form-group">
+                            <label for="contactName">Name</label>
+                            <input type="text" id="contactName" required placeholder="Your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactEmail">Email</label>
+                            <input type="email" id="contactEmail" required placeholder="Your email">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactSubject">Subject</label>
+                            <input type="text" id="contactSubject" required placeholder="Message subject">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactMessageText">Message</label>
+                            <textarea id="contactMessageText" required placeholder="Your message" style="width: 100%; padding: 1rem; border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 10px; background: rgba(255, 255, 255, 0.1); color: white; font-size: 1rem; min-height: 120px; resize: vertical;"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Task Details Modal -->
+    <div class="modal" id="taskModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTaskTitle">Task Details</h2>
+                <button class="close-modal" onclick="closeModal()">&times;</button>
+            </div>
+            <div id="modalTaskContent">
+                <!-- Task details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 2rem;">
+            <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 20px; text-align: center; border: 1px solid rgba(255,255,255,0.2); max-width: 800px;">
+                <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 1.5rem;">
+                    <div style="font-size: 2.5rem; font-weight: bold; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">&lt;/&gt;</div>
+                    <h3 style="color: white; font-size: 1.8rem;">Web Dev Academy</h3>
+                </div>
+                <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem; line-height: 1.6; margin-bottom: 1.5rem;">
+                    🚀 <strong>Web Dev Academy</strong> is a modern task management platform for web development students. Submit your homework, track your progress, and manage your learning journey with our interactive dashboard system.
+                </p>
+                <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+                    <span style="background: rgba(102, 126, 234, 0.3); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">📝 Task Submission</span>
+                    <span style="background: rgba(240, 147, 251, 0.3); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">📊 Progress Tracking</span>
+                    <span style="background: rgba(79, 172, 254, 0.3); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">👥 Student Management</span>
+                </div>
+            </div>
+
+            <!-- Developer Section -->
+            <div style="background: rgba(255,255,255,0.05); padding: 2rem; border-radius: 20px; text-align: center; border: 1px solid rgba(255,255,255,0.1); max-width: 600px; margin-top: 1rem;">
+                <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 1.5rem;">
+                    <img src="Images/Profile-Images.png" 
+                        alt="Salah Uddin Kader" 
+                        style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 3px solid #667eea; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: none; align-items: center; justify-content: center; font-size: 1.5rem; color: white; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);">
+                        👨‍💻
+                    </div>
+                    <div style="text-align: left;">
+                        <h4 style="color: white; margin: 0; font-size: 1.2rem;">Developed by</h4>
+                        <p style="color: #667eea; margin: 0; font-weight: 600; font-size: 1.1rem;">Salah Uddin Kader</p>
+                    </div>
+                </div>
+                
+                <p style="color: rgba(255,255,255,0.8); font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.5rem;">
+                    Full-Stack Developer & UI/UX Designer passionate about creating innovative web solutions and educational platforms.
+                </p>
+                
+                <button class="btn btn-primary" onclick="showDeveloperProfile()" style="margin-bottom: 1.5rem; padding: 0.8rem 2rem;">
+                    👨‍💻 View Developer Profile
+                </button>
+                
+                <div style="display: flex; justify-content: center; gap: 0.5rem; flex-wrap: wrap;">
+                    <span style="background: rgba(102, 126, 234, 0.2); color: #667eea; padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem;">HTML</span>
+                    <span style="background: rgba(240, 147, 251, 0.2); color: #f093fb; padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem;">CSS</span>
+                    <span style="background: rgba(79, 172, 254, 0.2); color: #4facfe; padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem;">JavaScript</span>
+                    <span style="background: rgba(118, 75, 162, 0.2); color: #764ba2; padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem;">SQL</span>
+                    <span style="background: rgba(245, 87, 108, 0.2); color: #f5576c; padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem;">React</span>
+                    <span style="background: rgba(102, 126, 234, 0.2); color: #667eea; padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem;">Node.js</span>
+                    <span style="background: rgba(0, 242, 254, 0.2); color: #00f2fe; padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem;">Jquery</span>
+                    <span style="background: rgba(79, 172, 254, 0.2); color: #4facfe; padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem;">UI/UX</span>
+                    <span style="background: rgba(245, 87, 108, 0.2); color: #f5576c; padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem;">Full-Stack</span>
+                </div>
+            </div>
+            
+            <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">&copy; 2025 Web Dev Academy. All rights reserved. | Your homework submission platform</p>
+        </div>
+    </div>
+
+    <!-- Hidden file input for profile image -->
+    <input type="file" id="profileImageInput" accept="image/*" style="display: none;" onchange="handleProfileImageChange(event)">
+
+    <script src="script.js"> </script>
+</body>
+</html>

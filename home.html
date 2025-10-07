@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="Images/code.png" title="code icons" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Web Dev Academy</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo" onclick="location.href='index.html'">Web Dev Academy</div>
+            <div class="nav-links" id="navLinks">
+                <a href="home.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="team.html">Our Team</a>
+                <a href="tasks.html" id="tasksLink">Tasks</a>
+                <a href="login.html" id="loginLink">Login</a>
+                <a href="signup.html">Sign Up</a>
+                <a href="contact.html">Contact</a>
+                <a href="dashboard.html" id="dashboardLink" style="display: none;">Dashboard</a>
+                <a href="#" onclick="logout()" id="logoutLink" style="display: none;">Logout</a>
+            </div>
+            <div class="mobile-menu" onclick="toggleMobileMenu()" id="mobileMenuBtn">
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-content">
+        <div class="container">
+            <div class="hero">
+                <h1>Welcome to Web Dev Academy</h1>
+                <p id="typewriterText">Your homework submission and task management platform</p>
+                <div class="cta-buttons">
+                    <a class="btn btn-primary" href="signup.html">Get Started</a>
+                    <a class="btn btn-secondary" href="login.html">Login</a>
+                </div>
+            </div>
+
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <i class="fas fa-users" style="font-size: 2.5rem; color: #667eea; margin-bottom: 1rem;"></i>
+                    <h3>150+</h3>
+                    <p>Active Students</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-chalkboard-teacher" style="font-size: 2.5rem; color: #f093fb; margin-bottom: 1rem;"></i>
+                    <h3>85+</h3>
+                    <p>Classes Available</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-tasks" style="font-size: 2.5rem; color: #4facfe; margin-bottom: 1rem;"></i>
+                    <h3>140+</h3>
+                    <p>Tasks Available</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-trophy" style="font-size: 2.5rem; color: #f5576c; margin-bottom: 1rem;"></i>
+                    <h3>95%</h3>
+                    <p>Success Rate</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script defer src="script.js"></script>
+</body>
+</html>

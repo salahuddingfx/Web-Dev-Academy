@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="Images/code.png" title="code icons" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login - Web Dev Academy</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo" onclick="location.href='index.html'">Web Dev Academy</div>
+            <div id="mobileMenuBtn" class="mobile-menu" onclick="toggleMobileMenu()" aria-label="Toggle navigation">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="home.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="team.html">Our Team</a>
+                <a href="login.html" id="loginLink">Login</a>
+                <a href="signup.html">Sign Up</a>
+                <a href="contact.html">Contact</a>
+                <a href="dashboard.html" id="dashboardLink" style="display: none;">Dashboard</a>
+                <a href="#" onclick="logout()" id="logoutLink" style="display: none;">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-content">
+        <div class="container">
+            <div class="page active" id="loginPage">
+                <div class="auth-container">
+                    <form class="auth-form" onsubmit="handleLogin(event)">
+                        <h2>Login</h2>
+                        <div id="loginMessage"></div>
+                        <div class="form-group">
+                            <label for="loginEmailOrUsername">Email or Username</label>
+                            <input type="text" id="loginEmailOrUsername" required placeholder="Enter your email or username">
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Password</label>
+                            <div style="position: relative;">
+                                <input type="password" id="loginPassword" required placeholder="Enter your password" style="padding-right: 3rem;">
+                                <button type="button" onclick="togglePassword('loginPassword', this)" style="position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); background: none; border: none; color: rgba(0,0,0,0.6); cursor: pointer; font-size: 1rem;">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Login</button>
+                        <p style="text-align: center; margin-top: 1rem; color: rgba(0,0,0,0.7);">
+                            Don't have an account? <a href="signup.html" style="color: #667eea;">Sign up</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

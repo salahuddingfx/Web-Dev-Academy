@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="Images/code.png" title="code icons" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard - Web Dev Academy</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo" onclick="location.href='index.html'">Web Dev Academy</div>
+            <div id="mobileMenuBtn" class="mobile-menu" onclick="toggleMobileMenu()" aria-label="Toggle navigation">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="home.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="tasks.html">Tasks</a>
+                <a href="team.html">Our Team</a>
+                <a href="login.html" id="loginLink">Login</a>
+                <a href="signup.html">Sign Up</a>
+                <a href="contact.html">Contact</a>
+                <a href="dashboard.html" id="dashboardLink" style="display: none;">Dashboard</a>
+                <a href="#" onclick="logout()" id="logoutLink" style="display: none;">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-content">
+        <div class="container">
+            <div class="page active" id="dashboardPage">
+                <div class="dashboard">
+                    <div class="dashboard-header">
+                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <img id="userProfileImage" class="profile-image" src="" alt="Profile" onclick="changeProfileImage()" style="display: none;">
+                                <div id="defaultAvatar" style="width: 100px; height: 100px; border-radius: 50%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: white; cursor: pointer;" onclick="changeProfileImage()">👤</div>
+                                <div>
+                                    <h1>📚 Student Dashboard</h1>
+                                    <p id="welcomeMessage">Welcome back!</p>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                                <button class="btn btn-primary" onclick="showMySubmissions()">📄 My Submissions</button>
+                                <button class="btn btn-secondary" onclick="showMyProgress()">📊 My Progress</button>
+                                <button class="btn btn-secondary" onclick="showEditProfile()">✏️ Edit Profile</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-stats">
+                        <div class="stat-card">
+                            <h3 id="mySubmissions">0</h3>
+                            <p>My Submissions</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3 id="completedTasks">0</h3>
+                            <p>Completed Tasks</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3 id="pendingTasks">0</h3>
+                            <p>Pending Tasks</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3 id="totalAvailableTasks">0</h3>
+                            <p>Available Tasks</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-top:1.5rem; display:flex; gap:1rem; align-items:center; flex-wrap:wrap;">
+                        <a class="btn btn-primary" href="tasks.html">📚 Browse All Tasks</a>
+                        <button class="btn btn-secondary" onclick="showMySubmissions()">📄 My Submissions</button>
+                        <button class="btn btn-secondary" onclick="showMyProgress()">📊 My Progress</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="taskModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTaskTitle">Task Details</h2>
+                <button class="close-modal" onclick="closeModal()">&times;</button>
+            </div>
+            <div id="modalTaskContent"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

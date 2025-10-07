@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="icon" href="Images/code.png" title="code icons" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>All Tasks - Web Dev Academy</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo" onclick="location.href='index.html'">Web Dev Academy</div>
+            <div id="mobileMenuBtn" class="mobile-menu" onclick="toggleMobileMenu()" aria-label="Toggle navigation">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="team.html">Team</a>
+                <a id="tasksLink" href="tasks.html">Tasks</a>
+                <a id="loginLink" href="login.html">Login</a>
+                <a id="signupLink" href="signup.html">Sign Up</a>
+                <a id="dashboardLink" href="dashboard.html">Dashboard</a>
+                <a id="logoutLink" href="#" onclick="logout(); return false;" style="display:none;">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container page active" id="tasksPage">
+        <section class="tasks-overview">
+            <div class="dashboard" style="padding-top:1.2rem;">
+                <div class="dashboard-header">
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <h1>📚 All Tasks</h1>
+                        <p style="opacity:0.8; margin:0;">Browse tasks for all classes. You must be logged in to interact or submit.</p>
+                    </div>
+                    <div>
+                        <a class="btn btn-secondary" href="dashboard.html" style="margin-left:1rem;">Back to Dashboard</a>
+                    </div>
+                </div>
+
+                <div class="task-search" style="margin-top:1.5rem;">
+                    <form class="search-form" onsubmit="searchTasks(event)">
+                        <input type="number" class="search-input" id="classSearch" placeholder="Enter class number (1-90)" min="1" max="90">
+                        <button type="submit" class="btn btn-primary">Search Tasks</button>
+                        <button type="button" class="btn btn-secondary" onclick="loadDefaultTasks()">Show Default Tasks</button>
+                    </form>
+                </div>
+
+                <div id="taskResults" style="margin-top:1.5rem;">
+                    <div class="task-list" id="taskList">
+                        <!-- tasks will be rendered here by script.js (dashboard style) -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal placeholder (script uses these IDs) -->
+    <div id="taskModal" class="modal">
+        <div class="modal-content">
+            <h3 id="modalTaskTitle"></h3>
+            <div id="modalTaskContent"></div>
+        </div>
+    </div>
+
+</body>
+</html>

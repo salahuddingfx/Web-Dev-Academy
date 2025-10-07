@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="Images/code.png" title="code icons" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Team - Web Dev Academy</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo" onclick="location.href='index.html'">Web Dev Academy</div>
+            <div id="mobileMenuBtn" class="mobile-menu" onclick="toggleMobileMenu()" aria-label="Toggle navigation">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="home.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="team.html">Our Team</a>
+                <a href="login.html" id="loginLink">Login</a>
+                <a href="signup.html">Sign Up</a>
+                <a href="contact.html">Contact</a>
+                <a href="dashboard.html" id="dashboardLink" style="display: none;">Dashboard</a>
+                <a href="#" onclick="logout()" id="logoutLink" style="display: none;">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-content">
+        <div class="container">
+            <div class="page active" id="teamPage">
+                <div class="hero" style="padding: 2rem 0;">
+                    <h1>Meet Our Team</h1>
+                    <p>The passionate educators behind Web Dev Academy</p>
+                </div>
+
+                <div class="team-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+                    <!-- Team cards (shortened) -->
+                    <!-- Team Member 1 -->
+                        <div class="team-card" onclick="showTeamMember(1)">
+                        <div class="team-avatar">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face&auto=format" 
+                                alt="Ahmed Rahman" 
+                                style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 4px solid #667eea; box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);"
+                                onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDEyMCAxMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkMSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzY2N2VlYTtzdG9wLW9wYWNpdHk6MSIgLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiM3NjRiYTI7c3RvcC1vcGFjaXR5OjEiIC8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PGNpcmNsZSBjeD0iNjAiIGN5PSI2MCIgcj0iNjAiIGZpbGw9InVybCgjZ3JhZDEpIi8+PHRleHQgeD0iNjAiIHk9Ijc1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSI0MCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIj7wn5GowqDwn5K7PC90ZXh0Pjwvc3ZnPg=='; this.style.borderRadius='50%';">
+                        </div>
+                        <h3>Ahmed Rahman</h3>
+                        <p class="team-role">Lead Instructor</p>
+                        <p class="team-specialty">Full-Stack Development</p>
+                        <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 1rem;">
+                            <a href="https://github.com/ahmed-rahman" target="_blank" rel="noopener noreferrer" style="color: #667eea; font-size: 1.2rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/ahmed-rahman" target="_blank" rel="noopener noreferrer" style="color: #667eea; font-size: 1.2rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://twitter.com/ahmed_dev" target="_blank" rel="noopener noreferrer" style="color: #667eea; font-size: 1.2rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+
+
+                    <!-- Team Member 2 -->
+                    <div class="team-card" onclick="showTeamMember(2)">
+                        <div class="team-avatar">
+                            <div style="width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white; box-shadow: 0 8px 25px rgba(240, 147, 251, 0.4); margin: 0 auto;">
+                                👩‍💻
+                            </div>
+                        </div>
+                        <h3>Fatima Khan</h3>
+                        <p class="team-role">Frontend Specialist</p>
+                        <p class="team-specialty">React & UI/UX Design</p>
+                        <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 1rem;">
+                            <a href="https://github.com/fatima-khan" target="_blank" rel="noopener noreferrer" style="color: #f093fb; font-size: 1.2rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/fatima-khan" target="_blank" rel="noopener noreferrer" style="color: #f093fb; font-size: 1.2rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://dribbble.com/fatima_designs" target="_blank" rel="noopener noreferrer" style="color: #f093fb; font-size: 1.2rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+                                <i class="fab fa-dribbble"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Team Member 3 -->
+                    <div class="team-card" onclick="showTeamMember(3)">
+                        <div class="team-avatar">
+                            <div style="width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white; box-shadow: 0 8px 25px rgba(79, 172, 254, 0.4); margin: 0 auto;">
+                                👨‍💼
+                            </div>
+                        </div>
+                        <h3>Rafiq Hassan</h3>
+                        <p class="team-role">Backend Developer</p>
+                        <p class="team-specialty">Node.js & Database Expert</p>
+                        <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 1rem;">
+                            <a href="https://github.com/rafiq-hassan" target="_blank" rel="noopener noreferrer" style="color: #4facfe; font-size: 1.2rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/rafiq-hassan" target="_blank" rel="noopener noreferrer" style="color: #4facfe; font-size: 1.2rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://stackoverflow.com/users/rafiq" target="_blank" rel="noopener noreferrer" style="color: #4facfe; font-size: 1.2rem; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+                                <i class="fab fa-stack-overflow"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
