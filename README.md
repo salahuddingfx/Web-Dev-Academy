@@ -71,4 +71,4 @@ Web-Dev-Academy/
 <div align="center"> <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=120&section=footer&animation=twinkling"/>
 <p> <i>Made with ❤️ by <b>Salah Uddin Kader</b></i> </p> </div>
 
---
+---
